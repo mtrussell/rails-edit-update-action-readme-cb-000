@@ -843,3 +843,14 @@ Processing by PostsController#edit as HTML
   [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 5]]
   Rendered posts/edit.html.erb within layouts/application (15.9ms)
 Completed 200 OK in 37ms (Views: 36.3ms | ActiveRecord: 0.1ms)
+
+
+Started PATCH "/posts/5" for 24.54.121.234 at 2018-09-03 02:29:43 +0000
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4ltv32uUWbN//D/ej7Et3onJLPI2QFMvR2fso1ygi8YZOPvoJpgtxKOCOFSF9QR+QyIoNRTqw59qUAYWT87QlA==", "post"=>{"title"=>"My post edited", "description"=>"My description edited"}, "commit"=>"Submit Post", "id"=>"5"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "posts" SET "title" = ?, "description" = ?, "updated_at" = ? WHERE "posts"."id" = ?  [["title", "My post edited"], ["description", "My description edited"], ["updated_at", "2018-09-03 02:29:43.845137"], ["id", 5]]
+  [1m[36m (3.2ms)[0m  [1mcommit transaction[0m
+Redirected to http://67.205.152.27:52284/posts/5
+Completed 302 Found in 13ms (ActiveRecord: 4.5ms)
