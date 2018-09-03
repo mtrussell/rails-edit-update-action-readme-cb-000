@@ -702,3 +702,30 @@ Processing by PostsController#show as HTML
   [1m[36mPost Load (0.3ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 3]]
   Rendered posts/show.html.erb within layouts/application (0.1ms)
 Completed 200 OK in 63ms (Views: 15.7ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/posts/3" for 24.54.121.234 at 2018-09-03 02:04:45 +0000
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered posts/show.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 18ms (Views: 16.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/3" for 24.54.121.234 at 2018-09-03 02:04:46 +0000
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered posts/show.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 13ms (Views: 12.0ms | ActiveRecord: 0.1ms)
+
+
+Started PATCH "/posts/3" for 24.54.121.234 at 2018-09-03 02:04:49 +0000
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zRncMfl1Z+poZe0a4ilsaxOvYGFKef57sEogLNh97u82ekgGtHkTnbQb6pDobUXL2URkpmjTbsudfcqZyxO1vQ==", "post"=>{"title"=>"Matt's post", "description"=>"The best description. Ever."}, "commit"=>"Submit Post", "id"=>"3"}
+  [1m[35mPost Load (0.1ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "posts" SET "title" = ?, "description" = ?, "updated_at" = ? WHERE "posts"."id" = ?  [["title", nil], ["description", nil], ["updated_at", "2018-09-03 02:04:49.708304"], ["id", 3]]
+  [1m[36m (3.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://67.205.152.27:52284/posts/3
+Completed 302 Found in 7ms (ActiveRecord: 3.5ms)
