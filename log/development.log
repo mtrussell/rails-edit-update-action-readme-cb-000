@@ -663,3 +663,34 @@ Processing by PostsController#create as HTML
   [1m[35m (2.4ms)[0m  commit transaction
 Redirected to http://67.205.152.27:52284/posts/3
 Completed 302 Found in 9ms (ActiveRecord: 3.2ms)
+
+
+Started GET "/posts/3" for 24.54.121.234 at 2018-09-03 01:58:44 +0000
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered posts/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 20ms (Views: 12.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/3/edit" for 24.54.121.234 at 2018-09-03 01:58:50 +0000
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered posts/edit.html.erb within layouts/application (16.5ms)
+Completed 200 OK in 30ms (Views: 28.3ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/posts/3" for 24.54.121.234 at 2018-09-03 01:59:01 +0000
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zRncMfl1Z+poZe0a4ilsaxOvYGFKef57sEogLNh97u82ekgGtHkTnbQb6pDobUXL2URkpmjTbsudfcqZyxO1vQ==", "post"=>{"title"=>"Matt's post", "description"=>"The best description. Ever."}, "commit"=>"Submit Post", "id"=>"3"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+RuntimeError ({"utf8"=>"✓", "_method"=>"patch", "authenticity_token"=>"zRncMfl1Z+poZe0a4ilsaxOvYGFKef57sEogLNh97u82ekgGtHkTnbQb6pDobUXL2URkpmjTbsudfcqZyxO1vQ==", "post"=>{"title"=>"Matt's post", "description"=>"The best description. Ever."}, "commit"=>"Submit Post", "controller"=>"posts", "action"=>"update", "id"=>"3"}):
+  app/controllers/posts_controller.rb:29:in `update'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (25.8ms)
